@@ -47,7 +47,7 @@ class RPCStabilityTests {
     }
 
     object DummyOps : RPCOps {
-        override val protocolVersion = 0
+        override val protocolVersion = 1000
     }
 
     private fun waitUntilNumberOfThreadsStable(executorService: ScheduledExecutorService): Map<Thread, List<StackTraceElement>> {
@@ -486,7 +486,7 @@ class RPCStabilityTests {
     }
 
     class SlowConsumerRPCOpsImpl : SlowConsumerRPCOps {
-        override val protocolVersion = 0
+        override val protocolVersion = 1000
 
         override fun streamAtInterval(interval: Duration, size: Int): Observable<ByteArray> {
             val chunk = ByteArray(size)
